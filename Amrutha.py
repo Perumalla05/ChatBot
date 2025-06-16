@@ -36,7 +36,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- API Keys and Models ---
-genai.configure(api_key="AIzaSyDZyL0KYMFU7EqiQY0e05GwHuetdtRjjjw")  # Replace with your actual API key
+# genai.configure(api_key="AIzaSyDZyL0KYMFU7EqiQY0e05GwHuetdtRjjjw")  # Replace with your actual API key
+import os
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
 gemini = genai.GenerativeModel('gemini-1.5-flash')
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
